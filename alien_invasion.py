@@ -197,7 +197,7 @@ class AlienInvasion:
                     
             self.scoreboard.check_high_score()
             self.scoreboard.prep_score()
-        
+    
         # 检查外星人是否为空，为空则清楚现有子弹，重新创建一批外星人
         if not self.aliens:
             self.bullets.empty()
