@@ -1,14 +1,15 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship:
+class Ship(Sprite):
     def __init__(self, ai_game) -> None:
         ''' 管理飞船的类 '''
+        super().__init__()
         
         # 初始化飞船并设置其初始位置
         self.screen = ai_game.screen
         self.screen_rect = ai_game.screen.get_rect()
         self.settings = ai_game.settings
-        
         
         # 加载飞船图像并获取外接矩形
         self.image = pygame.image.load('images/ship.bmp')
@@ -34,5 +35,9 @@ class Ship:
         
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+        
+    def center_ship(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
         
         
